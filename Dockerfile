@@ -1,13 +1,14 @@
 FROM python:3.7
+# The base image chosen comes from https://hub.docker.com/_/python
+# The version 3.7 is equals to `3.7.<last>-buster` version
 
 # Configure the working directory
 RUN mkdir -p /opt/project
 WORKDIR /opt/project
 
 
-# Download and install google cloud. See the dockerfile at
-# https://hub.docker.com/r/google/cloud-sdk/~/dockerfile/
-ENV CLOUD_SDK_VERSION 344.0.0
+ARG CLOUD_SDK_VERSION=345.0.0
+ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 RUN  \
   export CLOUD_SDK_APT_DEPS="curl gcc python-dev python-setuptools apt-transport-https lsb-release openssh-client git" && \
   export CLOUD_SDK_PIP_DEPS="crcmod" && \
