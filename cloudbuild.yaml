@@ -1,0 +1,18 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-t',
+    'gcr.io/world-fishing-827/github.com/globalfishingwatch/gfw-pipeline:latest',
+    '.'
+  ]
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'push',
+    'gcr.io/world-fishing-827/github.com/globalfishingwatch/gfw-pipeline:latest',
+  ]
+
+timeout: 7200s
