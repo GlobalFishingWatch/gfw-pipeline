@@ -4,11 +4,11 @@ steps:
   args: [
     'build',
     '-t',
-    'gcr.io/world-fishing-827/github.com/globalfishingwatch/gfw-pipeline:latest',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest',
     '.'
   ]
 
 images:
-  - 'gcr.io/world-fishing-827/github.com/globalfishingwatch/gfw-pipeline:latest'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest'
 
 timeout: 7200s
