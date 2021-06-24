@@ -1,14 +1,38 @@
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
+  id: latest
   args: [
     'build',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest',
     '.'
   ]
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.7
+  args: [
+    'build',
+    '-t',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.7',
+    'python3.7/'
+  ]
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.8
+  args: [
+    'build',
+    '-t',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8',
+    'python3.8/'
+  ]
+  waitFor: ['-']
 
 images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.7'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8'
 
 timeout: 7200s

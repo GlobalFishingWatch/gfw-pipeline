@@ -1,6 +1,6 @@
-FROM python:3.7
+FROM python:3.8
 # The base image chosen comes from https://hub.docker.com/_/python
-# The version 3.7 is equals to `3.7.<last>-buster` version
+# The version 3.8 is equals to `3.8.<last>-buster` version
 
 # Configure the working directory
 RUN mkdir -p /opt/project
