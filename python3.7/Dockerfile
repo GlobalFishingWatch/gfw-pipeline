@@ -7,7 +7,7 @@ RUN mkdir -p /opt/project
 WORKDIR /opt/project
 
 
-ARG CLOUD_SDK_VERSION=346.0.0
+ARG CLOUD_SDK_VERSION=347.0.0
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 RUN  \
   export CLOUD_SDK_APT_DEPS="curl gcc python-dev python-setuptools apt-transport-https lsb-release openssh-client git" && \
