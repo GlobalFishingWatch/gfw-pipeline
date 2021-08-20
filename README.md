@@ -29,3 +29,11 @@ To indicate in other Dockerfile use it:
 FROM gcr.io/world-fishing-827/github.com/globalfishingwatch/gfw-pipeline:latest
 
 ```
+## Maintenance
+
+If you want to upgrade the Google SDK version that is using this image, you could do it replacing the subsitution in the `cloudbuild.yaml`
+
+```
+substitutions:
+  _CLOUD_SDK_VERSION=<VERSION_UPGRATED>
+```

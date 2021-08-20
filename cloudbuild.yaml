@@ -4,6 +4,8 @@ steps:
   id: latest
   args: [
     'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest',
     '.'
@@ -14,6 +16,8 @@ steps:
   id: python3.7
   args: [
     'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.7',
     'python3.7/'
@@ -24,6 +28,8 @@ steps:
   id: python3.8
   args: [
     'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8',
     'python3.8/'
@@ -34,11 +40,16 @@ steps:
   id: python3.9
   args: [
     'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9',
     'python3.9/'
   ]
   waitFor: ['-']
+
+substitutions:
+  _CLOUD_SDK_VERSION: '353.0.0'
 
 images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest'
