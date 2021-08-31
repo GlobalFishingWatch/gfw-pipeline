@@ -48,7 +48,7 @@ steps:
   ]
   waitFor: ['-']
 - name: 'gcr.io/cloud-builders/docker'
-  id: python3.9
+  id: python3.9-tag
   args: [
     'tag',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9',
