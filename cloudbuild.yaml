@@ -47,6 +47,14 @@ steps:
     'python3.9/'
   ]
   waitFor: ['-']
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.9
+  args: [
+    'tag',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9'
+  ]
+  waitFor: ['-']
 
 substitutions:
   _CLOUD_SDK_VERSION: '353.0.0'
@@ -56,5 +64,6 @@ images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.7'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9'
+  - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9'
 
 timeout: 7200s
