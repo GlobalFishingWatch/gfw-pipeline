@@ -57,7 +57,7 @@ steps:
   waitFor: ['python3.9']
 
 substitutions:
-  _CLOUD_SDK_VERSION: '353.0.0'
+  _CLOUD_SDK_VERSION: '355.0.0'
 
 images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest'
