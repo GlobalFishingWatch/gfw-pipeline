@@ -35,6 +35,14 @@ steps:
     'python3.8/'
   ]
   waitFor: ['-']
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.8-tag
+  args: [
+    'tag',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8'
+  ]
+  waitFor: ['python3.8']
 
 - name: 'gcr.io/cloud-builders/docker'
   id: python3.9
@@ -65,5 +73,6 @@ images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9'
   - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9'
+  - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8'
 
 timeout: 7200s
