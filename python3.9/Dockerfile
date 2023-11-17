@@ -13,6 +13,7 @@ RUN  \
   export CLOUD_SDK_APT_DEPS="curl gcc apt-transport-https lsb-release openssh-client git" && \
   export CLOUD_SDK_PIP_DEPS="crcmod" && \
   apt-get -qqy update && \
+  apt-get -qqy dist-upgrade && \
   apt-get install -qqy $CLOUD_SDK_APT_DEPS && \
   pip install -U $CLOUD_SDK_PIP_DEPS && \
   pip install -U "setuptools" && \
