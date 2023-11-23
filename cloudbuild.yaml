@@ -39,6 +39,20 @@ steps:
   waitFor: ['-']
 
 - name: 'gcr.io/cloud-builders/docker'
+  id: python3.8-alpine
+  args: [
+    'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '-t',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8-alpine',
+    '-t',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8-alpine',
+    'python3.8-alpine/'
+  ]
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
   id: python3.9
   args: [
     'build',
@@ -48,7 +62,23 @@ steps:
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9',
+    '-t',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10-alpine',
     'python3.9/'
+  ]
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.9-alpine
+  args: [
+    'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '-t',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9-alpine',
+    '-t',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9-alpine',
+    'python3.9-alpine/'
   ]
   waitFor: ['-']
 
@@ -62,7 +92,21 @@ steps:
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10',
+    '-t',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10-alpine',
     'python3.10/'
+  ]
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.10-alpine
+  args: [
+    'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '-t',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10-alpine',
+    'python3.10-alpine/'
   ]
   waitFor: ['-']
 
@@ -80,6 +124,18 @@ steps:
   ]
   waitFor: ['-']
 
+- name: 'gcr.io/cloud-builders/docker'
+  id: python3.11-alpine
+  args: [
+    'build',
+    '--build-arg',
+    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '-t',
+    'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.11-alpine',
+    'python3.11-alpine/'
+  ]
+  waitFor: ['-']
+
 substitutions:
   _CLOUD_SDK_VERSION: '455.0.0'
 
@@ -87,12 +143,20 @@ images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.7'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8-alpine'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9-alpine'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10-alpine'
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.11'
+  - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.11-alpine'
   - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8'
+  - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8-alpine'
   - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9'
+  - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9-alpine'
   - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10'
+  - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10-alpine'
   - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.11'
+  - 'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.11-alpine'
 
 timeout: 7200s

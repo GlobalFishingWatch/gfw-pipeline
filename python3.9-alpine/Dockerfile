@@ -10,7 +10,7 @@ RUN wget \
 
 
 # Base python image
-FROM python:3.8-alpine as base
+FROM python:3.9-alpine as base
 
 COPY --from=cloudsdk /tmp/google-cloud-sdk.tar.gz /tmp/google-cloud-sdk.tar.gz
 
