@@ -37,9 +37,6 @@ RUN \
   apk add $CLOUD_SDK_APK_DEPS $APK_DEPS && \
   pip install -U $CLOUD_SDK_PIP_DEPS
 
-# Downloading gcloud package]
-# RUN curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-$CLOUD_SDK_VERSION-linux-$(arch).tar.gz > /tmp/google-cloud-sdk.tar.gz
-
 # Installing the package
 RUN \
   mkdir -p /usr/local/gcloud \
