@@ -64,8 +64,6 @@ steps:
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9',
-    '-t',
-    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10-alpine',
     'python3.9/'
   ]
   waitFor: ['-']
@@ -96,8 +94,6 @@ steps:
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10',
-    '-t',
-    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10-alpine',
     'python3.10/'
   ]
   waitFor: ['-']
@@ -112,6 +108,8 @@ steps:
     'PYTHON_VERSION=3.10',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10-alpine',
+    '-t',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10-alpine',
     'python-alpine/'
   ]
   waitFor: ['-']
