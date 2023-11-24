@@ -44,11 +44,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.8',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8-alpine',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8-alpine',
-    'python3.8-alpine/'
+    'python-alpine/'
   ]
   waitFor: ['-']
 
@@ -74,11 +76,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.9',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9-alpine',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9-alpine',
-    'python3.9-alpine/'
+    'python-alpine/'
   ]
   waitFor: ['-']
 
@@ -104,9 +108,11 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.10',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10-alpine',
-    'python3.10-alpine/'
+    'python-alpine/'
   ]
   waitFor: ['-']
 
@@ -130,9 +136,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.11',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.11-alpine',
-    'python3.11-alpine/'
+    '-t',
+    'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.11-alpine',
+    'python-alpine/'
   ]
   waitFor: ['-']
 
