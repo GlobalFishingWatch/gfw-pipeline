@@ -1,13 +1,15 @@
-FROM python:3.7
+ARG PYTHON_VERSION=3.8
+
+FROM python:${PYTHON_VERSION}
 # The base image chosen comes from https://hub.docker.com/_/python
-# The version 3.7 is equals to `3.7.<last>-buster` version
+# The version ${PYTHON_VERSION} is equals to `${PYTHON_VERSION}.<last>-buster` version
 
 # Configure the working directory
 RUN mkdir -p /opt/project
 WORKDIR /opt/project
 
 
-ARG CLOUD_SDK_VERSION=349.0.0
+ARG CLOUD_SDK_VERSION=435.0.1
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 RUN  \
   export CLOUD_SDK_APT_DEPS="curl gcc apt-transport-https lsb-release openssh-client git" && \
