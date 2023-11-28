@@ -6,21 +6,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.7',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest',
-    '.'
-  ]
-  waitFor: ['-']
-
-- name: 'gcr.io/cloud-builders/docker'
-  id: python3.7
-  args: [
-    'build',
-    '--build-arg',
-    'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.7',
-    'python3.7/'
+    'python/'
   ]
   waitFor: ['-']
 
@@ -30,11 +22,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.8',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.8',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.8',
-    'python3.8/'
+    'python/'
   ]
   waitFor: ['-']
 
@@ -60,11 +54,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.9',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.9',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.9',
-    'python3.9/'
+    'python/'
   ]
   waitFor: ['-']
 
@@ -90,11 +86,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.10',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.10',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.10',
-    'python3.10/'
+    'python/'
   ]
   waitFor: ['-']
 
@@ -120,11 +118,13 @@ steps:
     'build',
     '--build-arg',
     'CLOUD_SDK_VERSION=${_CLOUD_SDK_VERSION}',
+    '--build-arg',
+    'PYTHON_VERSION=3.11',
     '-t',
     'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest-python3.11',
     '-t',
     'us-east4-docker.pkg.dev/world-fishing-827/prj-ocean-soundscape/gfw-pipeline:latest-python3.11',
-    'python3.11/'
+    'python/'
   ]
   waitFor: ['-']
 
