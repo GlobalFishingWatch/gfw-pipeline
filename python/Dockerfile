@@ -12,18 +12,18 @@ WORKDIR /opt/project
 ARG CLOUD_SDK_VERSION=435.0.1
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 RUN  \
-  export CLOUD_SDK_APT_DEPS="curl gcc apt-transport-https lsb-release openssh-client git" && \
+  export CLOUD_SDK_APT_DEPS="curl apt-transport-https ca-certificates gnupg" && \
+  export BACKWARDS_COMPAT_TOOLS="lsb-release git gcc openssh-client" && \
   export CLOUD_SDK_PIP_DEPS="crcmod" && \
   apt-get -qqy update && \
   apt-get -qqy dist-upgrade && \
-  apt-get install -qqy $CLOUD_SDK_APT_DEPS && \
+  apt-get install -qqy $CLOUD_SDK_APT_DEPS $BACKWARDS_COMPAT_TOOLS && \
   pip install -U $CLOUD_SDK_PIP_DEPS && \
   pip install -U "setuptools" && \
-  export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
-  echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" > /etc/apt/sources.list.d/google-cloud-sdk.list && \
-  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && \
+  echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" > /etc/apt/sources.list.d/google-cloud-sdk.list && \
   apt-get update && \
-  apt-get install -y google-cloud-sdk=${CLOUD_SDK_VERSION}-0 && \
+  apt-get install -y google-cloud-cli=${CLOUD_SDK_VERSION}-0 && \
   gcloud config set core/disable_usage_reporting true && \
   gcloud config set component_manager/disable_update_check true && \
   gcloud config set metrics/environment github_docker_image
