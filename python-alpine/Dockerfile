@@ -27,7 +27,7 @@ ENV CLOUD_SDK_PIP_DEPS "crcmod"
 RUN  \
   apk update && \
   apk upgrade --no-cache && \
-  pip install --upgrade pip
+  pip install --no-cache-dir --upgrade pip
 
 # Image used
 FROM base as build 
@@ -35,7 +35,7 @@ FROM base as build
 # Install gcloud required dependencies
 RUN \
   apk add $CLOUD_SDK_APK_DEPS $APK_DEPS && \
-  pip install -U $CLOUD_SDK_PIP_DEPS
+  pip install --no-cache-dir -U $CLOUD_SDK_PIP_DEPS
 
 # Installing the package
 RUN \

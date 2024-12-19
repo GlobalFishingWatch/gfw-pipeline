@@ -18,9 +18,9 @@ RUN  \
   apt-get -qqy update && \
   apt-get -qqy dist-upgrade && \
   apt-get install -qqy $CLOUD_SDK_APT_DEPS $BACKWARDS_COMPAT_TOOLS && \
-  pip install -U pip && \
-  pip install -U $CLOUD_SDK_PIP_DEPS && \
-  pip install -U "setuptools" && \
+  pip install --no-cache-dir -U pip && \
+  pip install --no-cache-dir -U $CLOUD_SDK_PIP_DEPS && \
+  pip install --no-cache-dir -U "setuptools" && \
   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && \
   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" > /etc/apt/sources.list.d/google-cloud-sdk.list && \
   apt-get update && \
