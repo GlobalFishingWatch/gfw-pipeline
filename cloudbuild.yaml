@@ -177,7 +177,7 @@ steps:
   waitFor: ['-']
 
 substitutions:
-  _CLOUD_SDK_VERSION: '526.0.1'
+  _CLOUD_SDK_VERSION: '528.0.0'
 
 images:
   - 'gcr.io/$PROJECT_ID/github.com/globalfishingwatch/gfw-pipeline:latest'
